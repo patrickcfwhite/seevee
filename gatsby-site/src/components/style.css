@@ -164,7 +164,7 @@ main{
 content:'...';
 color:red;
 }
-.desc a{
+.desc .skill{
 	border-style: dashed;
 	border-width: 1px;
 	padding-left:5px;

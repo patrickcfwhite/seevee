@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby"
-
+import '../components/style.css' 
 import { Job } from "../components/job";
 
 const IndexPage = ({data}) => (
