@@ -1,42 +1,35 @@
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+const Header = ({
+  data: { myName, email, github, bioLineOne, bioLineTwo },
+}) => {
+  return (
+    <header>
+      <div aria-label="name" class="name-container">
+        <a class="name">{myName}</a>
+      </div>
+      <div class="infotable">
+        <div class="info">
+          <div aria-label="contact" class="social">
+            <a href={`mailto:${email}?subject=Hi%20${myName.split(" ")[0]}!`}>
+              <br />
+              Email
+            </a>
+            <a href={github} target="_blank">
+              <br />
+              GitHub
+            </a>
+          </div>
+          <a class="bio" aria-label="short biography">
+            <br />
+            {bioLineOne}
+            <br />
+            {bioLineTwo}
+          </a>
+        </div>
+      </div>
+    </header>
+  )
 }
 
 export default Header
